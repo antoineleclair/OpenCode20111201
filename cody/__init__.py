@@ -10,9 +10,14 @@ def main(global_config, **settings):
     initialize_sql(engine)
     config = Configurator(settings=settings)
     config.add_static_view('static', 'cody:static', cache_max_age=3600)
-    config.add_route('home', '/')
-    config.add_view('cody.views.my_view',
-                    route_name='home',
-                    renderer='templates/mytemplate.pt')
+    add_routes(config)
+    config.scan('cody')
     return config.make_wsgi_app()
 
+def add_routes(config):
+    """Adds the routes to the application."""
+    config.add_route('home', '/')
+    config.add_route('users', '/users')
+    config.add_route('user_edit', '/users/{user_id}/edit')
+    config.add_route('user_new', '/users/new')
+    config.add_route('user_single', '/users/{user_id}')

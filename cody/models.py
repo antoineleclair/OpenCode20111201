@@ -15,28 +15,22 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
-class MyModel(Base):
-    __tablename__ = 'models'
+class User(Base):
+    """A user of the application, with his credentials."""
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode(255), unique=True)
-    value = Column(Integer)
-
-    def __init__(self, name, value):
+    username = Column(Unicode(255), unique=True)
+    password = Column(Unicode(255))
+    name = Column(Unicode(255))
+    location = Column(Unicode(255))
+    
+    def __init__(self, username=None, password=None, name=None, location=None):
+        self.username = username
+        self.password = password
         self.name = name
-        self.value = value
-
-def populate():
-    session = DBSession()
-    model = MyModel(name=u'root', value=55)
-    session.add(model)
-    session.flush()
-    transaction.commit()
+        self.location = location
 
 def initialize_sql(engine):
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine
     Base.metadata.create_all(engine)
-    try:
-        populate()
-    except IntegrityError:
-        transaction.abort()
