@@ -11,10 +11,13 @@
     <div class="wrap">
     
         <header>
-            <a href="/">home</a> |
-            <a href="#">login</a> |
-            <a href="${request.route_url('user_new')}">register</a>
-            ##<a href="#">Antoine Leclair</a> | <a href="#">logout</a>
+            <h1>Cody</h1>
+            <nav>
+                <a href="/">home</a> |
+                <a href="#">login</a> |
+                <a href="${request.route_url('user_new')}">register</a>
+                ##<a href="#">Antoine Leclair</a> | <a href="#">logout</a>
+            </nav>
         </header>
         
         <section id="main">

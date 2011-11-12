@@ -19,10 +19,18 @@ body {
 }
 
 header {
-    text-align: right;
-    font-size: 0.8em;
+    overflow: hidden;
 }
-header a {
+header h1 {
+    float: left;
+    margin: 0;
+    font-size: 1em;
+}
+header nav {
+    font-size: 0.8em;
+    text-align: right;
+}
+header nav a {
     color: #000;
 }
 
