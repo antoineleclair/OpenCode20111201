@@ -8,7 +8,7 @@ from cody.models import DBSession, User
 def index(request):
     """List all the users."""
     session = DBSession()
-    users = session.Query(User).order_by(User.username)
+    users = session.query(User).order_by(User.username)
     return {'users': users}
 
 @view_config(route_name='user_new',
@@ -21,6 +21,8 @@ def new(request):
     request_method='POST', renderer='/users/new.mako')
 def create(request):
     """Receives data to register a user."""
+    # TODO workshop: validation
+    # TODO workshop: encrypt password
     username = request.params['username']
     password = request.params['password']
     name = request.params['name']
@@ -35,6 +37,10 @@ def create(request):
     request_method='GET', renderer='/users/show.mako')
 def show(request):
     """Shows the profile of a user."""
+     # TODO workshop: write a test
+     # TODO workshop: not found
     session = DBSession()
-    user = session.Query(User).get(request.matchdict['user_id'])
+    user = session.query(User).get(request.matchdict['user_id'])
     return {'user': user}
+    
+# TODO workshop: a user can edit his profile

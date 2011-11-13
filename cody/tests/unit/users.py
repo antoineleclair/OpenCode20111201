@@ -17,7 +17,6 @@ class TestNew(TestBase):
         self.assertIsNone(user.location)
 
 class TestCreate(TestBase):
-        
     def test_redirects_to_user_profile_when_valid(self):
         from cody.views.users import create
         from cody.models import User
@@ -48,3 +47,17 @@ class TestCreate(TestBase):
         self.assertGreater(len(user.password), 0)
         self.assertEqual(user.name, u'John Doe')
         self.assertEqual(user.location, u'Quebec')
+
+class TestIndex(TestBase):
+    def test_returns_list_of_all_users(self):
+        from cody.views.users import index
+        from cody.models import DBSession, User
+        session = DBSession()
+        session.add(User())
+        session.add(User())
+        session.add(User())
+        request = testing.DummyRequest()
+        response = index(request)
+        self.assertEqual(type(response), dict)
+        self.assertTrue('users' in response)
+        self.assertEqual(response['users'].count(), 3)
