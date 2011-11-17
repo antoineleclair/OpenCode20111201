@@ -2,6 +2,8 @@
 
 This project will be used for my presentation about tests at OpenCode 2011/12/01 in Quebec City.
 
+The content of this readme is not final yet. Please come back later for up-to-date content.
+
 ## Reason I use Python and Pyramid instead of X
 
 Because it's easy to write tests and there is practically no boilerplate code. Pretty much everything is exposed so it's ideal in the context of my presentation.
