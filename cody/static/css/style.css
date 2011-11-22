@@ -6,11 +6,11 @@ body {
     font-size: 200%;
     min-height: 100%;
     background: #fff; /* Old browsers */
-    background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 10%); /* FF3.6+ */
+    background: -moz-linear-gradient(top, #ddffff 0%,#ffffff 20%); /* FF3.6+ */
     background: -webkit-linear-gradient(top, #ddffff 0%,#ffffff 20%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #cccccc 0%,#eeeeee 10%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #cccccc 0%,#eeeeee 10%); /* IE10+ */
-    background: linear-gradient(top, #cccccc 0%,#eeeeee 10%); /* W3C */
+    background: -o-linear-gradient(top, #ddffff 0%,#ffffff 20%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ddffff 0%,#ffffff 20%); /* IE10+ */
+    background: linear-gradient(top, #ddffff 0%,#ffffff 20%); /* W3C */
 }
 
 .wrap {

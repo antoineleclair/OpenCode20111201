@@ -40,7 +40,7 @@ From now on, each time you want to work with this virtualenv, you activate it wi
 
     $ source env/bin/activate
 
-And you can deactivate it with
+And you can deactivate it at a later time with
 
     $ deactivate
 
@@ -52,11 +52,14 @@ When a virtualenv is activated you should have the name of the virtualenv in you
 This will install all the dependencies listed in the project in your virtualenv. That's about it for the code.
 
 ### Firefox
-I use Chrome most of the time, but you need Firefox for Selenium.
+I use Chrome most of the time, but you need Firefox for Selenium IDE. Update your version of Firefox to the latest.
 
-### Selenium
-Install Selunium plugin. TODO how-to
+### Selenium IDE
+
+With Firefox, go to http://seleniumhq.org/download/ and download the latest version of Selenium IDE.
 
 ### qunit
-We will make some JavaScript tests with [qunit](https://github.com/jquery/qunit). TODO how-to.
+We will make some JavaScript tests with [qunit](https://github.com/jquery/qunit). Clone the repo somewhere on your computer with:
+
+    git clone git://github.com/jquery/qunit.git
 
