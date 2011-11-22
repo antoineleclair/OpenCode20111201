@@ -29,7 +29,10 @@ class User(Base):
         self.password = password
         self.name = name
         self.location = location
-
+    
+    def __repr__(self):
+        return '<User: %s (%s)>' % (self.name, self.username)
+        
 def initialize_sql(engine):
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine

@@ -14,9 +14,13 @@
             <h1>Cody</h1>
             <nav>
                 <a href="/">home</a> |
-                <a href="#">login</a> |
+                % if request.user is not None:
+                <a href="#">${request.user.name}</a> |
+                <a href="${request.route_url('logout')}">logout</a>
+                % else:
+                <a href="${request.route_url('login')}">login</a> |
                 <a href="${request.route_url('user_new')}">register</a>
-                ##<a href="#">Antoine Leclair</a> | <a href="#">logout</a>
+                % endif
             </nav>
         </header>
         
