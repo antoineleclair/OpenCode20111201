@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url
@@ -35,7 +36,10 @@ def create(request):
     session.flush()
     # TODO workshop: test email by mocking
     send_welcome_email(request.registry.settings, name, email)
-    return HTTPFound(route_url('user_single', request, user_id=user.id))
+    response = HTTPFound(route_url('user_single', request, user_id=user.id))
+    # totally insecure, TODO in workshop: use auth token or something
+    response.set_cookie('user_id', str(user.id), max_age=timedelta(30))
+    return response
     
 @view_config(route_name='user_single',
     request_method='GET', renderer='/users/show.mako')

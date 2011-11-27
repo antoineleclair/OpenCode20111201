@@ -16,6 +16,10 @@
         <input type="text" name="name" id="name" value="${user.name}"/>
     </div>
     <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="${user.email}"/>
+    </div>
+    <div>
         <label for="location">Location</label>
         <input type="text" name="location" id="location" value="${user.location}"/>
     </div>

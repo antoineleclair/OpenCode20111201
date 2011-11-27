@@ -17,7 +17,7 @@ def login(request):
     user = session.query(User).filter(User.username==username).first()
     if user is not None and user.password == password:
         response = HTTPFound('/')
-         # totally insecure, TODO in workshop: use auth token or something
+        # totally insecure, TODO in workshop: use auth token or something
         response.set_cookie('user_id', str(user.id), max_age=timedelta(30))
         return response
     return {'username': username}

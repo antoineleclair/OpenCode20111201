@@ -15,7 +15,7 @@
             <nav>
                 <a href="/">home</a> |
                 % if request.user is not None:
-                <a href="#">${request.user.name}</a> |
+                <a href="${request.route_url('user_single', user_id=request.user.id)}">${request.user.name}</a> |
                 <a href="${request.route_url('logout')}">logout</a>
                 % else:
                 <a href="${request.route_url('login')}">login</a> |
