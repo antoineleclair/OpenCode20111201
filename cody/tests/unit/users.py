@@ -25,6 +25,7 @@ class TestCreate(TestBase):
         request.params['username'] = u'john55'
         request.params['password'] = u'password'
         request.params['name'] = u'John Doe'
+        request.params['email'] = u'user@example.com'
         request.params['location'] = u'Quebec'
         response = create(request)
         self.assertEqual(type(response), HTTPFound)
@@ -39,6 +40,7 @@ class TestCreate(TestBase):
         request.params['username'] = u'john55'
         request.params['password'] = u'password'
         request.params['name'] = u'John Doe'
+        request.params['email'] = u'user@example.com'
         request.params['location'] = u'Quebec'
         response = create(request)
         session = DBSession()
@@ -46,6 +48,7 @@ class TestCreate(TestBase):
         self.assertEqual(user.username, u'john55')
         self.assertGreater(len(user.password), 0)
         self.assertEqual(user.name, u'John Doe')
+        self.assertEqual(user.email, u'user@example.com')
         self.assertEqual(user.location, u'Quebec')
 
 class TestIndex(TestBase):

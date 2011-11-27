@@ -22,12 +22,15 @@ class User(Base):
     username = Column(Unicode(255), unique=True)
     password = Column(Unicode(255))
     name = Column(Unicode(255))
+    email = Column(Unicode(255))
     location = Column(Unicode(255))
     
-    def __init__(self, username=None, password=None, name=None, location=None):
+    def __init__(self, username=None, password=None,
+                   name=None, email=None, location=None):
         self.username = username
         self.password = password
         self.name = name
+        self.email = email
         self.location = location
     
     def __repr__(self):

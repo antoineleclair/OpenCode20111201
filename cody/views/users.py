@@ -2,6 +2,7 @@ from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url
 from cody.models import DBSession, User
+from cody.lib.mailer import send_welcome_email
 
 @view_config(route_name='users',
     request_method='GET', renderer='/users/index.mako')
@@ -26,11 +27,14 @@ def create(request):
     username = request.params['username']
     password = request.params['password']
     name = request.params['name']
+    email = request.params['email']
     location = request.params['location']
-    user = User(username, password, name, location)
+    user = User(username, password, name, email, location)
     session = DBSession()
     session.add(user)
     session.flush()
+    # TODO workshop: test email by mocking
+    send_welcome_email(request.registry.settings, name, email)
     return HTTPFound(route_url('user_single', request, user_id=user.id))
     
 @view_config(route_name='user_single',
