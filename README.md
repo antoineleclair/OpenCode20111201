@@ -2,7 +2,7 @@
 
 This project will be used for my presentation about tests at OpenCode 2011/12/01 in Quebec City.
 
-The content of this readme is not final yet. Please come back later for up-to-date content.
+The content of this readme is pretty much final. You can follow the instructions to get ready for the workshop.
 
 ## Reason I use Python and Pyramid instead of X
 
